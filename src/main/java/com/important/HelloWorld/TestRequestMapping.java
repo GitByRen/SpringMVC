@@ -29,6 +29,27 @@ public class TestRequestMapping {
 
 	private static final String SUCCESS = "success";
 	
+	
+	/**
+	 * 测试重定向
+	 */
+	@RequestMapping("/testRedirect")
+	public String testRedirect() {
+		System.out.println("testRedirect");
+		return "redirect:/index.jsp";
+	}
+	
+	
+	/**
+	 * 测试自定义视图
+	 */
+	@RequestMapping("/testView")
+	public String helloView() {
+		System.out.println("testView");
+		return "helloView";
+	}
+	
+	
 	/**
 	 * 1、有 @ModelAttribute 标记的方法, 会在每个目标方法执行之前被 SpringMVC 调用! 
 	 */
@@ -45,9 +66,10 @@ public class TestRequestMapping {
 	}
 
 	/**
-	 * 运行流程： 1. 执行 @ModelAttribute 注解修饰的方法: 从数据库中取出对象, 把对象放入到了 Map 中. 键为: user
-	 * 2.SpringMVC 从 Map 中取出 User 对象, 并把表单的请求参数赋给该 User 对象的对应属性. 3.SpringMVC
-	 * 把上述对象传入目标方法的参数.
+	 * 运行流程： 
+	 * 1. 执行 @ModelAttribute 注解修饰的方法: 从数据库中取出对象, 把对象放入到了 Map 中. 键为: user
+	 * 2.SpringMVC 从 Map 中取出 User 对象, 并把表单的请求参数赋给该 User 对象的对应属性. 
+	 * 3.SpringMVC把上述对象传入目标方法的参数.
 	 * 
 	 * 4、注意: 在 @ModelAttribute 修饰的方法中, 放入到 Map 时的键需要和目标方法入参类型的第一个字母小写的字符串一致!
 	 * 

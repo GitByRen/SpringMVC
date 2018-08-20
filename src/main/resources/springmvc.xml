@@ -9,7 +9,7 @@
 
 	<!-- 配置自动扫描的包 -->
 	<context:component-scan
-		base-package="com.important.HelloWorld"></context:component-scan>
+		base-package="com.important"></context:component-scan>
 		
 	<!-- 配置视图解析器，把Handler方法返回值解析为实际的物理视图 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -17,4 +17,18 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
+	<!-- 配置国际化资源文件 -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="i18n"></property>
+	</bean>
+	
+	<!-- 配置直接转发的页面 -->
+	<mvc:view-controller path="/success" view-name="success"/>
+	<!-- 使非直接转发的页面好用 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- 配置视图BeanNameViewResolver解析器：使用视图的名字来解析自定义视图 -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="100"></property>
+	</bean>
 </beans>

@@ -24,5 +24,7 @@
 	requestSchool:${requestScope.school }
 	<br/>
 	sessionSchool:${sessionScope.school }
+	
+	<!-- <fmt:message key="i18n.username"></fmt:message> -->
 </body>
 </html>
