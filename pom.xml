@@ -8,6 +8,7 @@
 	<packaging>war</packaging>
 	
 	<properties>
+		<com.important.jstl>1.2</com.important.jstl>
 		<com.important.servlet>4.0.0</com.important.servlet>
 		<com.important.jsp>2.0</com.important.jsp>
 		<springframework.context>4.3.18.RELEASE</springframework.context>
@@ -18,6 +19,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+		    <groupId>jstl</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>${com.important.jstl}</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
