@@ -2,20 +2,39 @@ package com.important.crud.entities;
 
 import java.util.Date;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
+/**
+ * 
+ * @NotEmpty 用在集合类上面
+ * @NotBlank 用在String上面
+ * @NotNull 用在基本类型上
+ *
+ */
 public class Employee {
 
 	private Integer id;
 
+	@NotBlank
 	private String lastName;
 
+	@Email
 	private String email;
 	//1 male, 0 female
 	private Integer gender;
 	
 	private Department department;
 	
+	@Past
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
 	
+	@NumberFormat(pattern="#,###,###.#")
 	private Float salary;
 
 	public Integer getId() {

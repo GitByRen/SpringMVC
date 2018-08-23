@@ -40,7 +40,9 @@
 	<mvc:default-servlet-handler/>
 	
 	<!-- 自定义转换器，需要在annotation-driven配置 -->
-	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+	<!-- org.springframework.context.support.ConversionServiceFactoryBean这样只能使用自定义转换器 -->
+	<!-- 这样既可以添加自定义的类型转换器，又可以使用格式化的功能 -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
 			<set>
 				<ref bean="employeeConverter" />

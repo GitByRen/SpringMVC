@@ -2,8 +2,12 @@ package com.important.crud.handlers;
 
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,9 +68,21 @@ public class EmployeeHandler {
 
 	/**
 	 * 新增
+	 * 
+	 * BindingResult：如果类型转换出错，结果会放在BindingResult中
 	 */
 	@RequestMapping(value = "/emp", method = RequestMethod.POST)
-	public String save(Employee employee) {
+	public String save(@Valid Employee employee, BindingResult result, Map<String, Object> map) {
+		System.out.println("save:" + employee);
+		if (result.getErrorCount() > 0) {
+			for (FieldError error : result.getFieldErrors()) {
+				System.out.println(error.getField() + ":" + error.getDefaultMessage());
+			}
+			
+			// 若验证出错，则转向定制的页面
+			map.put("departments", departmentDao.getDepartments());
+			return "input";
+		}
 		employeeDao.save(employee);
 		return "redirect:/emps";
 	}
@@ -89,5 +105,16 @@ public class EmployeeHandler {
 		map.put("employees", employeeDao.getAll());
 		return "list";
 	}
+	
+	
+	/**
+	 * 1.@InitBinder标识的方法，可以对WebDataBinder对象进行初始化。
+	 * 2.WebDataBinder是DataBinder的子类，用于完成由表单字段到JavaBean属性的绑定
+	 * 3.@InitBinder方法不能有返回值，必须声明为void
+	 */
+//	@InitBinder
+//	public void testInitBinder(WebDataBinder binder) {
+//		binder.setDisallowedFields("lastName");
+//	}
 
 }
