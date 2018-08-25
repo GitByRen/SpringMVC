@@ -69,6 +69,7 @@ public class EmployeeHandler {
 	/**
 	 * 新增
 	 * 
+	 * @Valid：数据校验
 	 * BindingResult：如果类型转换出错，结果会放在BindingResult中
 	 */
 	@RequestMapping(value = "/emp", method = RequestMethod.POST)

@@ -31,9 +31,11 @@ public class Employee {
 	private Department department;
 	
 	@Past
+	// 数据格式化
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
 	
+	// 数据格式化
 	@NumberFormat(pattern="#,###,###.#")
 	private Float salary;
 
