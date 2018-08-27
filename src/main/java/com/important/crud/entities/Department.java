@@ -8,7 +8,7 @@ public class Department {
 	public Department() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Department(int i, String string) {
 		this.id = i;
 		this.departmentName = string;
@@ -32,8 +32,7 @@ public class Department {
 
 	@Override
 	public String toString() {
-		return "Department [id=" + id + ", departmentName=" + departmentName
-				+ "]";
+		return "Department [id=" + id + ", departmentName=" + departmentName + "]";
 	}
-	
+
 }
