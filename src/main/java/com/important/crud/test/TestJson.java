@@ -28,8 +28,9 @@ public class TestJson {
 	
 	@ResponseBody
 	@RequestMapping("/testJson2/ajaxGet")
-	public Collection<Department> getDepartments(@RequestParam Map map) {
+	public Collection<Department> getDepartments(@RequestParam Map map, String departmentName) {
 		System.out.println("map:" + map);
+		System.out.println(departmentName);
 		return dept.getDepartments();
 	}
 }
