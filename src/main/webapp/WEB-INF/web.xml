@@ -35,5 +35,22 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 
+		1.  以 /* 结尾的。 path.endsWith("/*")，/* 对应的Servlet会被丢到wildcardWrappers中
+		2.  以 *. 开头的。 path.startsWith("*.")，*. 会被丢到extensionWrappers中
+		3.  是否是 /。      path.equals("/")，/ 会被丢到defaultWrapper中
+		4.  以上3种之外的，其他的映射都被丢到exactWrappers中
+		
+		规则1：精确匹配，使用contextVersion的exactWrappers
+		规则2：前缀匹配，使用contextVersion的wildcardWrappers
+		规则3：扩展名匹配，使用contextVersion的extensionWrappers .jsp或.jspx
+		规则4：使用资源文件来处理servlet，使用contextVersion的welcomeResources属性，这个属性是个字符串数组
+		规则7：使用默认的servlet，使用contextVersion的defaultWrapper
+		
+		如果使用/*，这个url-pattern除了精确地址，其他地址都由这个DispatcherServlet执行。
+		比如这个http://localhost:8888/SpringMVCDemo/index.jsp那么就会进入SpringMVC的DispatcherServlet中进行处理，
+		最终没有没有匹配到 /index.jsp 这个 RequestMapping
+	 -->
 
 </web-app>
