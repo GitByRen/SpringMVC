@@ -9,25 +9,18 @@
 <script type="text/javascript" src="../scripts/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
 	/* 默认值: "application/x-www-form-urlencoded" */
-	/* 
-		ajax数据为url后缀的格式：
-		1）提交方式使用POST时：
-			contentType: "application/json; charset=utf-8",后台无法获取值
-			contentType:"application/x-www-form-urlencoded",后台可以获取值
-		2）当提交方式使用get时：
-			两者都可以获取值
+	/*
+	   post:
+		application/json时 -- @RequestBody获取
+		application/x-www-form-urlencoded时 -- @RequestParam(Map或单个)或者直接实体类
 		
-		ajax数据为json格式：
-		1）提交方式使用POST时：
-			contentType: "application/json; charset=utf-8",后台无法获取值
-			contentType:"application/x-www-form-urlencoded",后台可以获取值。且中文不乱码
-		2）当提交方式使用get时：
-			两者都可以获取值，但是中文乱码
+	   get:
+		@RequestParam---@RequestParam(Map或单个)或者直接实体类
 	*/
 	
 	$(function() {
 		$("#send").click(function() {
-			postJson();
+			getJson();
 			return false;
 		});
 	});
@@ -41,7 +34,7 @@
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
-			url : "${pageContext.request.contextPath}/testJson2/ajax",
+			url : "${pageContext.request.contextPath}/testJson2/testAppWww",
 			dataType : 'json',
 			// contentType : 'application/json;charset=utf-8' 需要使用 JSON.stringify(datas) 
 			// 如果没有指定contentType则可以data:datas，后台不需要@RequestBody
@@ -58,8 +51,8 @@
 	function getJson() {
 		$.ajax({
 			type : 'GET',
-			contentType : 'application/json',
-			url : "${pageContext.request.contextPath}/testJson2/ajaxGet",
+// 			contentType : 'application/json',
+			url : "${pageContext.request.contextPath}/testJson2/ajaxGetDto",
 			dataType : 'text',
 			data : {
 				id : $('#ids').val(),
