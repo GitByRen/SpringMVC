@@ -22,7 +22,7 @@
 		<property name="basename" value="i18n"></property>
 	</bean>
 	
-	<!-- 配置直接转发的页面 -->
+	<!-- 配置直接转发的页面，这样会使非直接转发的请求404 -->
 	<mvc:view-controller path="/success" view-name="success"/>
 	<!-- 使非直接转发的页面好用 -->
 	<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>

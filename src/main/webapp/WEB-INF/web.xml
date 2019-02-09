@@ -5,7 +5,8 @@
 	id="WebApp_ID" version="2.5">
 	
 	<!-- 
-		配置org.springframework.web.filter.HiddenHttpMethodFilter：可以把 POST 请求转为 DELETE 或 POST 请求 
+		配置org.springframework.web.filter.HiddenHttpMethodFilter：可以把 POST 请求转为 DELETE 或 PUT 请求 
+		需要在发送POST请求时携带一个name="_method"的隐藏域
 	 -->
 	<filter>
 		<filter-name>hiddenHttpMethodFilter</filter-name>
