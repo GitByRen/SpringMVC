@@ -19,21 +19,27 @@ public class TestJson {
 
 	@Autowired
 	private DepartmentDao dept;
-	
+
+	@ResponseBody
+	@RequestMapping(value = "/testJson2/testSimpleJson", method = RequestMethod.POST)
+	public void testSimpleJson(@RequestParam String departmentName) {
+		System.out.println("testSimpleJson:" + departmentName);
+	}
+
 	@ResponseBody
 	@RequestMapping(value = "/testJson2/testAppJson", method = RequestMethod.POST)
 	public Collection<Department> testAppJson(@RequestBody Department department) {
-		System.out.println("department:"+department);
+		System.out.println("department:" + department);
 		return dept.getDepartments();
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/testJson2/testAppWww", method = RequestMethod.POST)
 	public Collection<Department> testAppWww(@RequestParam Map map) {
-		System.out.println("department:"+map);
+		System.out.println("department:" + map);
 		return dept.getDepartments();
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/testJson2/ajaxGet")
 	public Collection<Department> getDepartments(@RequestParam Map map, String departmentName) {
@@ -41,7 +47,7 @@ public class TestJson {
 		System.out.println(departmentName);
 		return dept.getDepartments();
 	}
-	
+
 	@ResponseBody
 	@RequestMapping("/testJson2/ajaxGetDto")
 	public Collection<Department> getDepartmentDto(Department map, String departmentName) {

@@ -20,7 +20,7 @@
 	
 	$(function() {
 		$("#send").click(function() {
-			getJson();
+			postJson();
 			return false;
 		});
 	});
@@ -34,7 +34,7 @@
 		$.ajax({
 			type : 'POST',
 			contentType : 'application/json',
-			url : "${pageContext.request.contextPath}/testJson2/testAppWww",
+			url : "${pageContext.request.contextPath}/testJson2/testSimpleJson",
 			dataType : 'json',
 			// contentType : 'application/json;charset=utf-8' 需要使用 JSON.stringify(datas) 
 			// 如果没有指定contentType则可以data:datas，后台不需要@RequestBody
