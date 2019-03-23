@@ -72,7 +72,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${springframework.context}</version>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.mchange</groupId>
