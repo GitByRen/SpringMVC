@@ -13,7 +13,7 @@
 		<com.important.jsp>2.0</com.important.jsp>
 		<springframework.context>4.3.18.RELEASE</springframework.context>
 		<com.important.c3p0>0.9.5.4</com.important.c3p0>
-		<com.important.mysql>5.1.46</com.important.mysql>
+		<com.important.mysql>8.0.16</com.important.mysql>
 		<com.important.springweb>4.3.18.RELEASE</com.important.springweb>
 		<com.important.springwebmvc>4.3.18.RELEASE</com.important.springwebmvc>
 		
