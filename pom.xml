@@ -15,7 +15,7 @@
 		<com.important.c3p0>0.9.5.4</com.important.c3p0>
 		<com.important.mysql>5.1.46</com.important.mysql>
 		<com.important.springweb>4.3.18.RELEASE</com.important.springweb>
-		<com.important.springwebmvc>4.3.18.RELEASE</com.important.springwebmvc>
+		<com.important.springwebmvc>5.3.18</com.important.springwebmvc>
 		
 		<com.important.jackson>2.10.2</com.important.jackson>
 		<com.important.hibernate>6.0.12.Final</com.important.hibernate>
